@@ -228,63 +228,6 @@ xianyu-auto-reply/
 
 ## 🚀 快速开始
 
-**⚡ 最快部署方式（推荐）**：使用预构建镜像，无需下载源码，一条命令即可启动！
-
-### 方式一：Docker 一键部署（最简单）⭐
-
-**国内用户（阿里云镜像，推荐）**：
-```bash
-# 1. 创建数据目录
-mkdir -p xianyu-auto-reply
-
-# 2. 一键启动容器（支持AMD64/ARM64，自动选择架构）
-docker run -d \
-  -p 8080:8080 \
-  --restart always \
-  -v $PWD/xianyu-auto-reply/:/app/data/ \
-  --name xianyu-auto-reply \
-  registry.cn-shanghai.aliyuncs.com/zhinian-software/xianyu-auto-reply:latest
-
-# 3. 访问系统
-# http://localhost:8080
-```
-
-**国际用户（Docker Hub镜像）**：
-```bash
-# 使用Docker Hub国际镜像
-docker run -d \
-  -p 8080:8080 \
-  --restart always \
-  -v $PWD/xianyu-auto-reply/:/app/data/ \
-  --name xianyu-auto-reply \
-  zhinianblog/xianyu-auto-reply:latest
-```
-
-**Windows用户**：
-```powershell
-# 创建数据目录
-mkdir xianyu-auto-reply
-
-# 国内用户（阿里云）
-docker run -d -p 8080:8080 --restart always -v %cd%/xianyu-auto-reply/:/app/data/ --name xianyu-auto-reply registry.cn-shanghai.aliyuncs.com/zhinian-software/xianyu-auto-reply:latest
-
-# 国际用户（Docker Hub）
-docker run -d -p 8080:8080 --restart always -v %cd%/xianyu-auto-reply/:/app/data/ --name xianyu-auto-reply zhinianblog/xianyu-auto-reply:latest
-```
-
-**ARM64服务器** (Oracle Cloud, AWS Graviton等)：
-```bash
-# Docker会自动选择ARM64镜像，无需特殊配置
-docker run -d \
-  -p 8080:8080 \
-  --restart always \
-  -v $PWD/xianyu-auto-reply/:/app/data/ \
-  --name xianyu-auto-reply \
-  registry.cn-shanghai.aliyuncs.com/zhinian-software/xianyu-auto-reply:latest
-```
-
-### 方式二：从源码构建部署
-
 #### 🌍 国际版（推荐海外用户）
 ```bash
 # 1. 克隆项目
@@ -320,7 +263,7 @@ docker-compose up -d --build
 docker-compose -f docker-compose-cn.yml up -d --build
 ```
 
-### 方式三：本地开发部署
+### 本地开发部署
 
 ```bash
 # 1. 克隆项目
@@ -364,9 +307,6 @@ python Start.py
 - ✅ **linux/amd64** - Intel/AMD处理器（传统服务器、PC、虚拟机）
 - ✅ **linux/arm64** - ARM64处理器（ARM服务器、树莓派4+、Apple M系列）
 
-**镜像仓库**:
-- 🇨🇳 **阿里云**: `registry.cn-shanghai.aliyuncs.com/zhinian-software/xianyu-auto-reply:latest`
-- 🌍 **Docker Hub**: `zhinianblog/xianyu-auto-reply:latest`
 
 **自动构建**: GitHub Actions自动构建并推送多架构镜像到两个镜像仓库，Docker会自动选择匹配的架构
 
@@ -746,57 +686,6 @@ docker logs -f xianyu-auto-reply
 docker logs --tail 100 xianyu-auto-reply
 ```
 
-**更新到最新版本**：
-
-国内用户（阿里云镜像）：
-```bash
-# 1. 停止并删除旧容器
-docker stop xianyu-auto-reply
-docker rm xianyu-auto-reply
-
-# 2. 删除旧镜像（释放磁盘空间）
-docker rmi $(docker images --filter "reference=*xianyu-auto-reply*" -q)
-
-# 3. 拉取最新镜像
-docker pull registry.cn-shanghai.aliyuncs.com/zhinian-software/xianyu-auto-reply:latest
-
-# 4. 启动新容器
-docker run -d -p 8080:8080 --restart always \
-  -v $PWD/xianyu-auto-reply/:/app/data/ \
-  --name xianyu-auto-reply \
-  registry.cn-shanghai.aliyuncs.com/zhinian-software/xianyu-auto-reply:latest
-```
-
-国际用户（Docker Hub）：
-```bash
-# 1. 停止并删除旧容器
-docker stop xianyu-auto-reply
-docker rm xianyu-auto-reply
-
-# 2. 删除旧镜像（释放磁盘空间）
-docker rmi $(docker images --filter "reference=*xianyu-auto-reply*" -q)
-
-# 3. 拉取最新镜像
-docker pull zhinianblog/xianyu-auto-reply:latest
-
-# 4. 启动新容器
-docker run -d -p 8080:8080 --restart always \
-  -v $PWD/xianyu-auto-reply/:/app/data/ \
-  --name xianyu-auto-reply \
-  zhinianblog/xianyu-auto-reply:latest
-```
-
-**验证多架构镜像**：
-```bash
-# 查看镜像支持的架构
-docker manifest inspect registry.cn-shanghai.aliyuncs.com/zhinian-software/xianyu-auto-reply:latest | grep architecture
-
-# 或Docker Hub镜像
-docker manifest inspect zhinianblog/xianyu-auto-reply:latest | grep architecture
-
-# 应该显示: "architecture": "amd64" 和 "architecture": "arm64"
-```
-
 
 **容器重启**：
 ```bash
@@ -852,7 +741,7 @@ docker start xianyu-auto-reply
 欢迎为项目做出贡献！您可以通过以下方式参与：
 
 ### 📝 提交问题
-- 在 [GitHub Issues](https://github.com/zhinianboke/xianyu-auto-reply/issues) 中报告Bug
+- 在 [GitHub Issues](https://github.com/ChainLynne/xianyu-tools/issues) 中报告Bug
 - 提出新功能建议和改进意见
 - 分享使用经验和最佳实践
 
@@ -919,18 +808,6 @@ docker-deploy.bat
 powershell -ExecutionPolicy Bypass -File docker-deploy.bat
 ```
 
-
-## 🧸 特别鸣谢
-
-本项目参考了以下开源项目：
-
-- **[XianYuApis](https://github.com/cv-cat/XianYuApis)** - 提供了闲鱼API接口的技术参考
-- **[XianyuAutoAgent](https://github.com/shaxiu/XianyuAutoAgent)** - 提供了自动化处理的实现思路
-- **[myfish](https://github.com/Kaguya233qwq/myfish)** - 提供了扫码登录的实现思路
-
-
-感谢这些优秀的开源项目为本项目的开发提供了宝贵的参考和启发！
-
 ## ⚖️ 版权声明与使用条款
 
 ### 📋 重要声明
@@ -963,7 +840,6 @@ powershell -ExecutionPolicy Bypass -File docker-deploy.bat
 
 - **项目作者**：zhinianboke
 - **项目地址**：https://github.com/zhinianboke/xianyu-auto-reply
-- **联系方式**：通过GitHub Issues或项目交流群
 
 ### ⚠️ 免责声明
 
@@ -972,108 +848,4 @@ powershell -ExecutionPolicy Bypass -File docker-deploy.bat
 3. **责任限制** - 作者不对使用本项目造成的任何损失承担责任
 4. **合规使用** - 使用者需确保使用行为符合当地法律法规
 
-### 📞 侵权处理
 
-如发现本项目存在侵权内容，请通过以下方式联系：
-
-- **GitHub Issues**：https://github.com/zhinianboke/xianyu-auto-reply/issues
-- **邮箱联系**：在项目交流群中获取联系方式
-
-我们将在收到通知后**立即处理**并删除相关内容。
-
-### 🤝 合作与授权
-
-如需商业使用或特殊授权，请通过项目交流群联系作者进行协商。
-
----
-
-**⚖️ 使用本项目即表示您已阅读、理解并同意遵守以上所有条款。**
-
----
-
-## 📊 项目统计
-
-- **代码行数**: 10,000+ 行
-- **功能模块**: 15+ 个核心模块
-- **API接口**: 50+ 个RESTful接口
-- **数据库表**: 20+ 个数据表
-- **支持平台**: Windows/Linux/macOS
-- **部署方式**: Docker一键部署
-- **开发周期**: 持续更新维护
-
-## 🎯 项目优势
-
-### 技术优势
-- ✅ **现代化架构**: 基于FastAPI + Python 3.11+异步编程
-- ✅ **容器化部署**: Docker + Docker Compose一键部署
-- ✅ **多用户系统**: 完整的用户注册、登录、权限管理
-- ✅ **数据隔离**: 每个用户的数据完全独立，安全可靠
-- ✅ **实时通信**: WebSocket实时消息处理和状态监控
-
-### 功能优势
-- ✅ **智能回复**: 关键词匹配 + AI智能回复 + 优先级策略
-- ✅ **自动发货**: 多种发货方式，支持规格匹配和延时发货
-- ✅ **商品管理**: 自动收集商品信息，支持批量操作
-- ✅ **订单管理**: 订单详情获取，支持自动确认发货
-- ✅ **安全保护**: 多层加密，防重复机制，异常恢复
-
-### 运维优势
-- ✅ **日志系统**: 完整的日志记录和实时查看
-- ✅ **监控告警**: 账号状态监控和异常告警
-- ✅ **数据备份**: 自动数据备份和恢复机制
-- ✅ **性能优化**: 异步处理，高并发支持
-- ✅ **易于维护**: 模块化设计，代码结构清晰
-- ✅ **使用统计**: 匿名使用统计，帮助改进产品
-
-## 📊 用户统计说明
-
-### 统计目的
-为了了解有多少人在使用这个系统，系统会发送匿名的用户统计信息。
-
-### 收集的信息
-- **匿名ID**: 基于机器特征生成的唯一标识符（重启不变）
-- **操作系统**: 系统类型（如Windows、Linux）
-- **版本信息**: 软件版本号
-
-### 隐私保护
-- ✅ **完全匿名**: 不收集任何个人身份信息
-- ✅ **数据安全**: 不收集账号、密码、关键词等敏感信息
-- ✅ **本地优先**: 所有业务数据仅存储在本地
-- ✅ **持久化ID**: Docker重建时ID不变（保存在数据库中）
-
-### 查看统计信息
-
-#### 方式1: Python统计服务器
-```bash
-# 部署Python统计服务器
-python simple_stats_server.py
-
-# 访问统计服务器查看用户数量
-curl http://localhost:8081/stats
-```
-
-#### 方式2: PHP统计服务器
-```bash
-# 将index.php部署到Web服务器（如Apache/Nginx）
-# 访问统计接口
-curl http://localhost/php/stats
-
-# 测试统计功能
-python test_php_stats.py
-```
-
-**PHP统计服务器特点**:
-- 数据保存在`user_stats.txt`文件中
-- 支持用户数据更新（anonymous_id作为key）
-- 自动生成统计摘要
-- 记录操作日志到`stats.log`
-
----
-
-🎉 **开始使用闲鱼自动回复系统，让您的闲鱼店铺管理更加智能高效！**
-
-**⚠️ 重要提醒：本项目仅供学习研究使用，严禁商业用途！**
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=zhinianboke/xianyu-auto-reply&type=Date)](https://www.star-history.com/#zhinianboke/xianyu-auto-reply&Date)
