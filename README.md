@@ -273,6 +273,7 @@ source venv/bin/activate  # Linux/macOS
 
 # 3. 安装Python依赖
 pip install --upgrade pip
+#报错则运行 python -m pip install --upgrade pip #windows
 pip install -r requirements.txt
 
 # 4. 安装Playwright浏览器
