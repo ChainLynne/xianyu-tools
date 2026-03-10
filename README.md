@@ -288,7 +288,7 @@ docker run -d \
 #### 🌍 国际版（推荐海外用户）
 ```bash
 # 1. 克隆项目
-git clone https://github.com/zhinianboke/xianyu-auto-reply.git
+git clone https://github.com/ChainLynne/xianyu-tools.git
 cd xianyu-auto-reply
 
 # 2. 使用完整版配置（包含Redis缓存等增强功能）
@@ -301,7 +301,7 @@ docker-compose up -d --build
 #### 🇨🇳 中国版（推荐国内用户）
 ```bash
 # 1. 克隆项目
-git clone https://github.com/zhinianboke/xianyu-auto-reply.git
+git clone https://github.com/ChainLynne/xianyu-tools.git
 cd xianyu-auto-reply
 
 # 2. 使用中国镜像源配置（下载速度更快）
@@ -324,7 +324,7 @@ docker-compose -f docker-compose-cn.yml up -d --build
 
 ```bash
 # 1. 克隆项目
-git clone https://github.com/zhinianboke/xianyu-auto-reply.git
+git clone https://github.com/ChainLynne/xianyu-tools.git
 cd xianyu-auto-reply
 
 # 2. 创建虚拟环境（推荐）
@@ -903,7 +903,7 @@ docker-compose up -d
 
 ```bash
 # 克隆项目并从源码构建
-git clone https://github.com/zhinianboke/xianyu-auto-reply.git
+git clone https://github.com/ChainLynne/xianyu-tools.git
 cd xianyu-auto-reply
 ./docker-deploy.sh
 ```
