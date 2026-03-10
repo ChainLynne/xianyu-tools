@@ -391,8 +391,8 @@ TZ=Asia/Shanghai                       # 时区设置
 DB_PATH=data/xianyu_data.db            # 数据库文件路径（默认在data目录）
 
 # 管理员配置
-ADMIN_USERNAME=admin                   # 管理员用户名
-ADMIN_PASSWORD=admin123                # 管理员密码（请修改）
+ADMIN_USERNAME=xianyuTools                   # 管理员用户名
+ADMIN_PASSWORD=xianyu1688                # 管理员密码（请修改）
 JWT_SECRET_KEY=your-secret-key         # JWT密钥（请修改）
 
 # 功能开关
