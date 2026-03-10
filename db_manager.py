@@ -657,7 +657,7 @@ class DBManager:
                 default_password_hash = hashlib.sha256("xianyu1688".encode()).hexdigest()
                 cursor.execute('''
                 INSERT INTO users (username, email, password_hash) VALUES
-                ('xianyuTools', 'chainlynne@gmail.com', ?)
+                ('admin', 'chainlynne@gmail.com', ?)
                 ''', (default_password_hash,))
 
             # 获取admin用户ID，用于历史数据绑定
