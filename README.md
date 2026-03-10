@@ -421,8 +421,8 @@ CPU_LIMIT=2.0                          # CPU限制(核心数)
 
 - **Web管理界面**：http://localhost:8080
 - **默认管理员账号**：
-  - 用户名：`admin`
-  - 密码：`admin123`
+  - 用户名：`xianyuTools`
+  - 密码：`xianyu1688`
 - **API文档**：http://localhost:8080/docs
 - **健康检查**：http://localhost:8080/health
 
@@ -695,8 +695,8 @@ CPU_LIMIT=2.0                          # CPU限制(核心数)
 **重要**：为了系统安全，强烈建议修改默认管理员密码！
 
 #### 默认密码
-- **用户名**：`admin`
-- **默认密码**：`admin123`
+- **用户名**：`xianyuTools`
+- **默认密码**：`xianyu1688`
 - **初始化机制**：首次创建数据库时自动创建admin用户
 
 
