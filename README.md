@@ -328,7 +328,7 @@ TZ=Asia/Shanghai                       # 时区设置
 DB_PATH=data/xianyu_data.db            # 数据库文件路径（默认在data目录）
 
 # 管理员配置
-ADMIN_USERNAME=xianyuTools                   # 管理员用户名
+ADMIN_USERNAME=admin                   # 管理员用户名
 ADMIN_PASSWORD=xianyu1688                # 管理员密码（请修改）
 JWT_SECRET_KEY=your-secret-key         # JWT密钥（请修改）
 
@@ -358,7 +358,7 @@ CPU_LIMIT=2.0                          # CPU限制(核心数)
 
 - **Web管理界面**：http://localhost:8080
 - **默认管理员账号**：
-  - 用户名：`xianyuTools`
+  - 用户名：`admin`
   - 密码：`xianyu1688`
 - **API文档**：http://localhost:8080/docs
 - **健康检查**：http://localhost:8080/health
@@ -632,7 +632,7 @@ CPU_LIMIT=2.0                          # CPU限制(核心数)
 **重要**：为了系统安全，强烈建议修改默认管理员密码！
 
 #### 默认密码
-- **用户名**：`xianyuTools`
+- **用户名**：`admin`
 - **默认密码**：`xianyu1688`
 - **初始化机制**：首次创建数据库时自动创建admin用户
 
