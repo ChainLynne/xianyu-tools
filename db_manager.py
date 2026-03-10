@@ -654,12 +654,11 @@ class DBManager:
 
             if not admin_exists:
                 # 首次创建admin用户，设置默认密码
-                default_password_hash = hashlib.sha256("admin123".encode()).hexdigest()
+                default_password_hash = hashlib.sha256("xianyu1688".encode()).hexdigest()
                 cursor.execute('''
                 INSERT INTO users (username, email, password_hash) VALUES
-                ('admin', 'admin@localhost', ?)
+                ('xianyuTools', 'chainlynne@gmail.com', ?)
                 ''', (default_password_hash,))
-                logger.info("创建默认admin用户，密码: admin123")
 
             # 获取admin用户ID，用于历史数据绑定
             self._execute_sql(cursor, "SELECT id FROM users WHERE username = 'admin'")
