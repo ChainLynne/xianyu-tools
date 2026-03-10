@@ -1117,7 +1117,7 @@ async def register(request: RegisterRequest):
 
 # 固定的API秘钥（生产环境中应该从配置文件或环境变量读取）
 # 注意：现在从系统设置中读取QQ回复消息秘钥
-API_SECRET_KEY = "xianyu_api_secret_2024"  # 保留作为后备
+API_SECRET_KEY = "chainlynne_api_secret_2026"  # 保留作为后备
 
 class SendMessageRequest(BaseModel):
     api_key: str
@@ -1174,14 +1174,6 @@ async def send_message_api(request: SendMessageRequest):
             return SendMessageResponse(
                 success=False,
                 message="API秘钥不能为空"
-            )
-
-        # 特殊测试秘钥处理
-        if cleaned_api_key == "zhinina_test_key":
-            logger.info("使用测试秘钥，直接返回成功")
-            return SendMessageResponse(
-                success=True,
-                message="接口验证成功"
             )
 
         # 验证API秘钥
